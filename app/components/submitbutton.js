@@ -4,8 +4,8 @@ var React = require('react');
 class SubmitButton extends React.Component {
     constructor() {
       super();
-  // this.state??
     }
+
 
   render() {
     return (

@@ -20,7 +20,8 @@ class LocationSearch extends React.Component {
     this.state = {location: ''};
   }
   ajaxRequest() {
-    $.get('http://weatherly-api.herokuapp.com/api/weather',function(success){console.log(success)})
+    // console.log(details)
+    $.get('http://weatherly-api.herokuapp.com/api/weather/' + this.state.location ,function(success){console.log(success)}.bind(this))
   }
 
   render() {
@@ -34,7 +35,7 @@ class LocationSearch extends React.Component {
           onChange={(event)=> {this.setState({location: event.target.value})}}
           type="text" />
 
-          <SubmitButton handleClick={this.ajaxRequest}/>
+          <SubmitButton details={this.state.location} handleClick={this.ajaxRequest()}/>
         </div>
       </div>
     )
