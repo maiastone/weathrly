@@ -1,4 +1,5 @@
 var React = require('react');
+const SubmitButton = require('../components/submitbutton')
 
 var PromptContainer = React.createClass({
 
@@ -7,7 +8,7 @@ var PromptContainer = React.createClass({
     <div aria-role="search" className="location">
       <LocationSearch />
     </div>
-  )
+    )
   }
 });
 
@@ -25,12 +26,10 @@ class LocationSearch extends React.Component {
           <input
           placeholder="location" aria-label="search location"
           value={this.state.location}
-          onChange={(e)=> {this.setState({location: e.target.value})}}
+          onChange={(event)=> {this.setState({location: event.target.value})}}
           type="text" />
 
-          <button className="submit-button"
-          type="submit">Get Weather
-          </button>
+          <SubmitButton handleClick={console.log(this.props.location)}/>
         </div>
       </div>
     )
