@@ -4,12 +4,13 @@
   "description": "weather app built in react",
   "main": "index.js",
   "scripts": {
-      "production": "webpack -p",
-      "start": "webpack-dev-server"
+    "production": "webpack -p",
+    "start": "webpack-dev-server"
   },
   "author": "Maia Stone and Alex Pilewski",
   "license": "ISC",
   "dependencies": {
+    "jquery": "^3.1.1",
     "react": "^15.3.2",
     "react-dom": "^15.3.2"
   },

@@ -1,4 +1,6 @@
 var React = require('react');
+var $ = require('jquery');
+
 const SubmitButton = require('../components/submitbutton')
 
 var PromptContainer = React.createClass({
@@ -17,6 +19,9 @@ class LocationSearch extends React.Component {
     super();
     this.state = {location: ''};
   }
+  ajaxRequest() {
+    $.get('http://weatherly-api.herokuapp.com/api/weather',function(success){console.log(success)})
+  }
 
   render() {
     return(
@@ -29,11 +34,12 @@ class LocationSearch extends React.Component {
           onChange={(event)=> {this.setState({location: event.target.value})}}
           type="text" />
 
-          <SubmitButton handleClick={console.log(this.props.location)}/>
+          <SubmitButton handleClick={this.ajaxRequest}/>
         </div>
       </div>
     )
   }
 }
+
 
 module.exports = PromptContainer;
