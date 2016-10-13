@@ -1,7 +1,8 @@
 var React = require('react');
 var $ = require('jquery');
 
-const SubmitButton = require('../components/submitbutton')
+const SubmitButton = require('../components/submitbutton');
+const ForecastField = require('../components/forecastfield');
 
 var PromptContainer = React.createClass({
 
@@ -9,6 +10,7 @@ var PromptContainer = React.createClass({
     return (
     <div aria-role="search" className="location">
       <LocationSearch />
+      <ForecastField />
     </div>
     )
   }
@@ -20,8 +22,9 @@ class LocationSearch extends React.Component {
     this.state = {location: ''};
   }
   ajaxRequest() {
-    // console.log(details)
-    $.get('http://weatherly-api.herokuapp.com/api/weather/' + this.state.location ,function(success){console.log(success)}.bind(this))
+    var userLocation = this.state.location;
+    var locationURL = userLocation.replace(' ','-');
+    $.get('http://weatherly-api.herokuapp.com/api/weather/' + locationURL ,function(success){console.log(success)}.bind(this))
   }
 
   render() {
