@@ -1,4 +1,5 @@
 var React = require('react');
+const Weekday = require('./weekday');
 
 
 class ForecastField extends React.Component {
@@ -9,7 +10,13 @@ class ForecastField extends React.Component {
     return (
       <section>
         Hey There! {this.props.data[0].date}
-        
+        <Weekday />
+        <Weekday />
+        <Weekday />
+        <Weekday />
+        <Weekday />
+        <Weekday />
+        <Weekday />
       </section>
     )
   }
