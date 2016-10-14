@@ -12,6 +12,9 @@ class App extends React.Component{
       forecast: ''
     };
   }
+  setLocation(location){
+    this.setState({location: location});
+  }
   ajaxRequest() {
     var userLocation = this.state.location;
     var locationURL = userLocation.replace(' ','-');
@@ -19,7 +22,6 @@ class App extends React.Component{
       this.setState({forecast: success});
     }.bind(this));
   }
-
   render(){
     let forecast;
 
@@ -31,8 +33,8 @@ class App extends React.Component{
     }
     return (
     <div className="location">
-      <LocationSearch setLocation={this.ajaxRequest.bind(this)}/>
-      <SubmitButton  handleClick={this.ajaxRequest()}/>
+      <LocationSearch setLocation={this.setLocation().bind(this)}/>
+      <SubmitButton  handleClick={this.ajaxRequest().bind(this)}/>
       {forecast}
     </div>
     )
@@ -53,8 +55,7 @@ class LocationSearch extends React.Component {
         <div>
           <input
           placeholder="location" aria-label="search location"
-          value={this.state.location}
-          onChange={(event)=> {this.setState({location: event.target.value})}}
+          onChange={this.props.setLocation(event)}
           type="text" />
         </div>
       </div>
