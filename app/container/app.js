@@ -3,6 +3,7 @@ const React = require('react');
 const $ = require('jquery');
 const SubmitButton = require('../components/submitbutton');
 const ForecastField = require('../components/forecastfield');
+const LocationSearch = require('../components/locationsearch')
 
 class App extends React.Component{
   constructor(){
@@ -41,27 +42,5 @@ class App extends React.Component{
   }
 
 };
-
-class LocationSearch extends React.Component {
-  constructor() {
-    super();
-    this.state = {location: ''};
-  }
-
-  render() {
-    return(
-      <div>
-        <h1>Enter your location</h1>
-        <div>
-          <input
-          placeholder="location" aria-label="search location"
-          onChange={this.props.setLocation(event)}
-          type="text" />
-        </div>
-      </div>
-    )
-  }
-}
-
 
 module.exports = App;
