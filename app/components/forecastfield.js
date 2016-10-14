@@ -9,7 +9,7 @@ class ForecastField extends React.Component {
   render() {
     return (
       <section>
-        Hey
+        Hey There! {this.props.data[0].date}
       </section>
     )
   }

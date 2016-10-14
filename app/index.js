@@ -1,13 +1,12 @@
 var React = require('react');
 var ReactDOM = require('react-dom');
-require('./container/promptcontainer');
-const PromptContainer = require('./container/promptcontainer');
+const App = require('./container/app');
 // var UserLocation = require('../userlocation');
 
 
 
 ReactDOM.render(
-  <PromptContainer />,
+  <App />,
   document.getElementById('app')
 );
 
