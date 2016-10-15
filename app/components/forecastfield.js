@@ -24,11 +24,14 @@ class ForecastField extends React.Component {
     };
     let date = data.date;
     let convertedDate = Month[date.slice(0,2)] + ' ' + date.slice(3,5) + 'th';
+    let chance = data.weatherType.chance;
+    let convertedChance = '% ' + Math.floor(chance*100);
 
     return (
       <ul className={data.weatherType.type}>
         <li> { convertedDate } </li>
         <li> {data.weatherType.type} </li>
+        <li> { convertedChance } </li>
         <li>High: {data.temp.high}</li>
         <li>Low: {data.temp.low}</li>
       </ul>
