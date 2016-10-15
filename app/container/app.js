@@ -1,4 +1,6 @@
 /*jshint esversion: 6 */
+require('../style/reset');
+require('../style/style');
 const React = require('react');
 const $ = require('jquery');
 const SubmitButton = require('../components/submitbutton');
@@ -13,11 +15,12 @@ class App extends React.Component{
       forecast: []
     };
   }
+
   setLocation(location){
     let userInput = location.target.value
     this.setState({location: userInput});
-
   }
+
   ajaxRequest() {
     let userLocation = this.state.location;
     let locationURL = userLocation.replace(' ','-');
@@ -25,22 +28,22 @@ class App extends React.Component{
       this.setState({forecast: success});
     }.bind(this));
   }
+
   render(){
     let forecast;
-
     if (this.state.forecast.length){
       forecast = <ForecastField data={this.state.forecast}/>;
-  
     }
     return (
     <div className="location">
+      <header id="header">
       <LocationSearch setLocation={(event) => this.setLocation(event)}/>
       <SubmitButton  handleClick={() =>this.ajaxRequest()}/>
+      </header>
       {forecast}
     </div>
     )
   }
-
 };
 
 module.exports = App;

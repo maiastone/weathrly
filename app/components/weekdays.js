@@ -4,6 +4,7 @@ class Weekday extends React.Component {
     constructor() {
       super();
     }
+    
   render() {
     return (
       <section>
