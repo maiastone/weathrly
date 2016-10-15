@@ -1,6 +1,7 @@
 /*jshint esversion: 6 */
 require('../style/reset');
 require('../style/style');
+require('../style/weather');
 const React = require('react');
 const $ = require('jquery');
 const SubmitButton = require('../components/submitbutton');

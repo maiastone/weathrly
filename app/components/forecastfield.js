@@ -9,7 +9,7 @@ class ForecastField extends React.Component {
 
   getDayInfo(data) {
     return (
-      <ul>
+      <ul className={data.weatherType.type}>
         <li>{data.date}</li>
         <li>Type: {data.weatherType.type}</li>
         <li>High: {data.temp.high}</li>
