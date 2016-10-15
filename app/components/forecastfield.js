@@ -1,5 +1,5 @@
 var React = require('react');
-const Weekday = require('./weekday');
+const Weekday = require('./weekdays');
 
 
 class ForecastField extends React.Component {

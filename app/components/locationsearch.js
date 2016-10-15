@@ -1,3 +1,5 @@
+const React = require('react');
+
 class LocationSearch extends React.Component {
   constructor() {
     super();
@@ -19,4 +21,4 @@ class LocationSearch extends React.Component {
   }
 }
 
-module.exports LocationSearch;
+module.exports = LocationSearch;

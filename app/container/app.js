@@ -3,8 +3,8 @@ const React = require('react');
 const $ = require('jquery');
 const SubmitButton = require('../components/submitbutton');
 const ForecastField = require('../components/forecastfield');
-const LocationSearch = require('../components/locationsearch')
-
+const LocationSearch = require('../components/locationsearch');
+// const Weekday = require('../components/weekday');
 class App extends React.Component{
   constructor(){
     super();
