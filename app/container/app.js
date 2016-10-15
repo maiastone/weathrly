@@ -19,8 +19,8 @@ class App extends React.Component{
 
   }
   ajaxRequest() {
-    var userLocation = this.state.location;
-    var locationURL = userLocation.replace(' ','-');
+    let userLocation = this.state.location;
+    let locationURL = userLocation.replace(' ','-');
     $.get('http://weatherly-api.herokuapp.com/api/weather/' + locationURL ,function(success){
       this.setState({forecast: success});
     }.bind(this));
@@ -30,7 +30,7 @@ class App extends React.Component{
 
     if (this.state.forecast.length){
       forecast = <ForecastField data={this.state.forecast}/>;
-      console.log(this.state.forecast);
+  
     }
     return (
     <div className="location">

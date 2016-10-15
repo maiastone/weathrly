@@ -7,6 +7,7 @@ class Weekday extends React.Component {
   render() {
     return (
       <section>
+        {this.props.data}
       </section>
     )
   }
