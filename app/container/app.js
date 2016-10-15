@@ -10,11 +10,13 @@ class App extends React.Component{
     super();
     this.state = {
       location: '',
-      forecast: ''
+      forecast: []
     };
   }
   setLocation(location){
-    this.setState({location: location});
+    let userInput = location.target.value
+    this.setState({location: userInput});
+
   }
   ajaxRequest() {
     var userLocation = this.state.location;
@@ -26,16 +28,14 @@ class App extends React.Component{
   render(){
     let forecast;
 
-    if (this.state.forecast){
+    if (this.state.forecast.length){
       forecast = <ForecastField data={this.state.forecast}/>;
       console.log(this.state.forecast);
-    } else {
-      forecast = '';
     }
     return (
     <div className="location">
-      <LocationSearch setLocation={this.setLocation().bind(this)}/>
-      <SubmitButton  handleClick={this.ajaxRequest().bind(this)}/>
+      <LocationSearch setLocation={(event) => this.setLocation(event)}/>
+      <SubmitButton  handleClick={() =>this.ajaxRequest()}/>
       {forecast}
     </div>
     )

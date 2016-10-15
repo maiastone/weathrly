@@ -13,7 +13,7 @@ class LocationSearch extends React.Component {
         <div>
           <input
           placeholder="location" aria-label="search location"
-          onChange={this.props.setLocation(event)}
+          onChange={(event) => this.props.setLocation(event)}
           type="text" />
         </div>
       </div>

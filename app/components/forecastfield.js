@@ -9,7 +9,8 @@ class ForecastField extends React.Component {
   render() {
     return (
       <section>
-        Hey There! {this.props.data[0].date}
+    forecast.map()
+
         <Weekday />
         <Weekday />
         <Weekday />
@@ -23,6 +24,6 @@ class ForecastField extends React.Component {
 };
 
 
-
+// use map to return a new component for each day -- pass the array down as a prop and iterate through  pass weather object to weekday component
 
 module.exports = ForecastField;
