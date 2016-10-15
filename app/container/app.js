@@ -1,4 +1,7 @@
 /*jshint esversion: 6 */
+require('../style/reset');
+require('../style/style');
+require('../style/weather');
 const React = require('react');
 const $ = require('jquery');
 const SubmitButton = require('../components/submitbutton');
@@ -13,34 +16,35 @@ class App extends React.Component{
       forecast: []
     };
   }
+
   setLocation(location){
     let userInput = location.target.value
     this.setState({location: userInput});
-
   }
+
   ajaxRequest() {
-    var userLocation = this.state.location;
-    var locationURL = userLocation.replace(' ','-');
+    let userLocation = this.state.location;
+    let locationURL = userLocation.replace(' ','-');
     $.get('http://weatherly-api.herokuapp.com/api/weather/' + locationURL ,function(success){
       this.setState({forecast: success});
     }.bind(this));
   }
+
   render(){
     let forecast;
-
     if (this.state.forecast.length){
       forecast = <ForecastField data={this.state.forecast}/>;
-      console.log(this.state.forecast);
     }
     return (
     <div className="location">
+      <header id="header">
       <LocationSearch setLocation={(event) => this.setLocation(event)}/>
       <SubmitButton  handleClick={() =>this.ajaxRequest()}/>
+      </header>
       {forecast}
     </div>
     )
   }
-
 };
 
 module.exports = App;

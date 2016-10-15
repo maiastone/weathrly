@@ -6,7 +6,6 @@ class SubmitButton extends React.Component {
       super();
     }
 
-
   render() {
     return (
       <button className="submit-button"
