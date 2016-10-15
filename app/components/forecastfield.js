@@ -1,4 +1,4 @@
-var React = require('react');
+const React = require('react');
 const Weekday = require('./weekdays');
 
 
@@ -11,12 +11,13 @@ class ForecastField extends React.Component {
     return (
       <ul className={data.weatherType.type}>
         <li>{data.date}</li>
-        <li>Type: {data.weatherType.type}</li>
+        <li>{data.weatherType.type}</li>
         <li>High: {data.temp.high}</li>
         <li>Low: {data.temp.low}</li>
       </ul>
     )
   }
+
 
   render() {
     return (

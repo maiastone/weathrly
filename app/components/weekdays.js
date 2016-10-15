@@ -1,10 +1,10 @@
-var React = require('react');
+const React = require('react');
 
 class Weekday extends React.Component {
     constructor() {
       super();
     }
-    
+
   render() {
     return (
       <section>
