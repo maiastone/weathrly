@@ -7,19 +7,12 @@ class SubmitButton extends React.Component {
 
   render() {
     return (
-      <button className="submit-button"
-      onClick={this.props.handleClick}
-      type="submit">Get Weather
+      <button className="submit-button" onClick={this.props.handleClick} type="submit">
+        <img src="/app/style/images/search.svg"/>
       </button>
     )
   }
 };
-
-
-
-
-
-
 
 
 

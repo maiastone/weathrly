@@ -16,5 +16,4 @@ class Weekday extends React.Component {
 
 
 
-
 module.exports = Weekday;

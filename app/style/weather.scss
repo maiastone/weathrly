@@ -1,15 +1,38 @@
-.windy {
-  background: url('./images/windy.svg') no-repeat;
+@mixin weather-icon {
   width: 100px;
   height: 100px;
   margin: auto;
 }
 
+
+.windy {
+  background: url('./images/windy.svg') no-repeat;
+  @include weather-icon;
+}
+
 .sunny {
   background: url('./images/sunny.svg') no-repeat;
-  width: 100px;
-  height: 100px;
-  margin: auto;
+  @include weather-icon;
+}
+
+.rain {
+  background: url('./images/rain.svg') no-repeat;
+  @include weather-icon;
+}
+
+.snow {
+  background: url('./images/snow.svg') no-repeat;
+  @include weather-icon;
+}
+
+.thunder-storms {
+  background: url('./images/thunder-storms.svg') no-repeat;
+  @include weather-icon;
+}
+
+.cloudy {
+  background: url('./images/cloudy.svg') no-repeat;
+  @include weather-icon;
 }
 
 .data-image-container {
