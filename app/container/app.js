@@ -15,6 +15,7 @@ class App extends React.Component{
     this.state = {
       location: '',
       forecast: [],
+      extremeWeather : false
     };
   }
 
@@ -31,7 +32,7 @@ class App extends React.Component{
       $.get('http://weatherly-api.herokuapp.com/api/weather/' + locationURL ,function(success){
         this.setState({forecast: success});
       }.bind(this));
-    } 
+    }
   }
 
   componentDidMount () {
@@ -43,8 +44,11 @@ class App extends React.Component{
 
   render(){
     let forecast;
-    let errorMessage;
+    let weatherAlert;
 
+    if (this.state.extremeWeather === true) {
+      weatherAlert = (<div> {this.state.extremeWeather} forecasted for your area! Be aware! </div>);
+    }
     if (this.state.forecast.length){
       forecast = <ForecastField data={this.state.forecast}/>;
     } else {
@@ -56,6 +60,7 @@ class App extends React.Component{
         <LocationSearch setLocation={(event) => this.setLocation(event)}/>
         <SubmitButton  handleClick={() =>this.ajaxRequest()}/>
       </header>
+      {weatherAlert}
       {forecast}
     </div>
     )
