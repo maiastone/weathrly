@@ -8,6 +8,7 @@ const SubmitButton = require('../components/submitbutton');
 const ForecastField = require('../components/forecastfield');
 const LocationSearch = require('../components/locationsearch');
 // const Weekday = require('../components/weekday');
+
 class App extends React.Component{
   constructor(){
     super();
@@ -38,8 +39,8 @@ class App extends React.Component{
     return (
     <div className="location">
       <header id="header">
-      <LocationSearch setLocation={(event) => this.setLocation(event)}/>
-      <SubmitButton  handleClick={() =>this.ajaxRequest()}/>
+        <LocationSearch setLocation={(event) => this.setLocation(event)}/>
+        <SubmitButton  handleClick={() =>this.ajaxRequest()}/>
       </header>
       {forecast}
     </div>

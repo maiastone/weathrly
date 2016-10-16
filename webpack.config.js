@@ -18,7 +18,8 @@ module.exports = {
       {test: /\.js$/, exclude: /node_modules/, loader: 'babel-loader'},
       {test: /\.css$/, loader: "style-loader!css-loader" },
       {test: /\.scss$/, loader: "style!css!sass" },
-      {test: /\.svg$/, loader: 'svg-url-loader'}
+      {test: /\.svg$/, loader: 'svg-url-loader'},
+      {test: /\.(jpg|png)$/,loader: 'file?name=[path][name].[hash].[ext]'}
     ]
   },
   plugins: [HtmlWebpackPluginConfig],

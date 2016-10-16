@@ -48,21 +48,38 @@ class ForecastField extends React.Component {
     return (
       <div>
         <h2> { convertedDate } </h2>
-
+        
         <ul>
-            <div className="data-image-container">
+          <div className="data-image-container">
             <li> { convertedChance } </li>
             <li className={data.weatherType.type}></li>
             <li>{data.weatherType.type}</li>
-
           </div>
 
+          <div className="data-image-container">
+            <li>Morning: {morningTemp} </li>
+            <li className={data.weatherType.type}></li>
+            <li></li>
+          </div>
 
+          <div className="data-image-container">
+            <li>High: {data.temp.high}</li>
+            <li className={data.weatherType.type}></li>
+            <li></li>
+          </div>
 
-          <li>High: {data.temp.high}</li>
-          <li>Low: {data.temp.low}</li>
-          <li>Morning: {morningTemp} </li>
-          <li>Evening: {eveningTemp} </li>
+          <div className="data-image-container">
+            <li>Evening: {eveningTemp} </li>
+            <li className={data.weatherType.type}></li>
+            <li></li>
+          </div>
+
+          <div className="data-image-container">
+            <li>Low: {data.temp.low}</li>
+            <li className={data.weatherType.type}></li>
+            <li></li>
+          </div>
+
         </ul>
       </div>
     )
