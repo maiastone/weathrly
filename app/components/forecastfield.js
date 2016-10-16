@@ -22,20 +22,43 @@ class ForecastField extends React.Component {
       '11' : 'November',
       '12' : 'December'
     };
-    let date = data.date;
-    let convertedDate = Month[date.slice(0,2)] + ' ' + date.slice(3,5) + 'th';
-    let chance = data.weatherType.chance;
-    let convertedChance = '% ' + Math.floor(chance*100);
+
+    let convertedDate = Month[data.date.slice(0,2)] + ' ' + data.date.slice(3,5) + 'th';
+
+    let convertedChance = '% ' + Math.floor(data.weatherType.chance*100) + ' chance of ' ;
+
+    var getMorningTemp = function() {
+      let temperature = 0;
+      for (var i = 6; i < 11; i++) {
+        temperature += data.hourly.timeBreakDown[i]["hour"+(parseInt(i)+1)].temp;
+        }
+      return temperature/5;
+    };
+
+    var getEveningTemp = function() {
+      let temperature = 0;
+      for (var i = 16; i < 21; i++) {
+        temperature += data.hourly.timeBreakDown[i]["hour"+(parseInt(i)+1)].temp;
+        }
+      return temperature/5;
+    };
+    
+    let morningTemp = getMorningTemp();
+
+    let eveningTemp = getEveningTemp();
 
     return (
       <ul className={data.weatherType.type}>
         <li> { convertedDate } </li>
-        <li> {data.weatherType.type} </li>
         <li> { convertedChance } </li>
+        <li> {data.weatherType.type} </li>
         <li>High: {data.temp.high}</li>
         <li>Low: {data.temp.low}</li>
+        <li>Morning: {morningTemp} </li>
+        <li>Evening: {eveningTemp} </li>
       </ul>
     )
+
   }
 
   render() {
