@@ -23,8 +23,8 @@ class ForecastField extends React.Component {
       '12' : 'December'
     };
 
-    let convertedDate = Month[data.date.slice(0,2)] + ' ' + data.date.slice(3,5) + 'th';
-    let convertedChance = '% ' + Math.floor(data.weatherType.chance*100) + ' chance' ;
+    let convertedDate = Month[data.date.slice(0,2)] + ' ' + data.date.slice(3,5);
+    let convertedChance =  Math.floor(data.weatherType.chance*100)+'% chance' ;
 
     var getMorningTemp = function() {
       let temperature = 0;
@@ -48,36 +48,36 @@ class ForecastField extends React.Component {
     return (
       <div>
         <h2> { convertedDate } </h2>
-        
+
         <ul>
-          <div className="data-image-container">
+          <div className="data-image-container" className="bold-icon">
             <li> { convertedChance } </li>
-            <li className={data.weatherType.type}></li>
-            <li>{data.weatherType.type}</li>
+            <li className={data.weatherType.type.replace(' ','-')}></li>
+            <li className="type-font">{data.weatherType.type}</li>
           </div>
 
           <div className="data-image-container">
-            <li>Morning: {morningTemp} </li>
-            <li className={data.weatherType.type}></li>
-            <li></li>
+            <li className="label-font">Morning Average</li>
+            <li className={data.weatherType.type.replace(' ','-')}></li>
+            <li className="degree-font">{morningTemp}°</li>
           </div>
 
           <div className="data-image-container">
-            <li>High: {data.temp.high}</li>
-            <li className={data.weatherType.type}></li>
-            <li></li>
+            <li className="label-font">Daytime High</li>
+            <li className={data.weatherType.type.replace(' ','-')}></li>
+            <li className="degree-font">{data.temp.high}°</li>
           </div>
 
           <div className="data-image-container">
-            <li>Evening: {eveningTemp} </li>
-            <li className={data.weatherType.type}></li>
-            <li></li>
+            <li className="label-font">Evening Average</li>
+            <li className={data.weatherType.type.replace(' ','-')}></li>
+            <li className="degree-font">{eveningTemp}°</li>
           </div>
 
           <div className="data-image-container">
-            <li>Low: {data.temp.low}</li>
-            <li className={data.weatherType.type}></li>
-            <li></li>
+            <li className="label-font">Nighttime Low</li>
+            <li className={data.weatherType.type.replace(' ','-')}></li>
+            <li className="degree-font">{data.temp.low}°</li>
           </div>
 
         </ul>

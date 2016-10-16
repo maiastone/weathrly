@@ -8,17 +8,17 @@ class LocationSearch extends React.Component {
 
   render() {
     return(
-      <div>
-        <div>
-          <h1>Weathrly</h1>
-          <input
-          placeholder="search location" aria-label="search location"
-          onChange={(event) => this.props.setLocation(event)}
-          type="text" />
-        </div>
+      <div id="app-header">
+        <h1>Weathrly</h1>
+        <input
+        placeholder="search location" aria-label="search location"
+        onChange={(event) => this.props.setLocation(event)}
+        type="text" />
       </div>
     )
   }
-}
+};
+
+
 
 module.exports = LocationSearch;

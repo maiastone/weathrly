@@ -11,20 +11,21 @@
 body {
   background: url("data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHdpZHRoPSI4IiBoZWlnaHQ9IjgiPgo8cmVjdCB3aWR0aD0iOCIgaGVpZ2h0PSI4IiBmaWxsPSIjNDAzYzNmIj48L3JlY3Q+CjxwYXRoIGQ9Ik0wIDBMOCA4Wk04IDBMMCA4WiIgc3Ryb2tlLXdpZHRoPSIxIiBzdHJva2U9IiMxZTI5MmQiPjwvcGF0aD4KPC9zdmc+");
   color: white;
-  font-family: sans-serif;
-  // background: url('/images/nz.png') no-repeat center center fixed;
+  font-family: 'Open Sans', sans-serif;
 }
 
 h1 {
   padding-bottom: 5px;
+  font-family: 'Rubik Mono One', sans-serif;
   font-size: 58px;
-  margin: 20px 25px 5px 25px;
+  margin: 20px 25px 5px 30px;
 }
 
 h2 {
   padding-bottom: 5px;
-  font-size: 20px;
-  margin: 20px 25px 5px 25px;
+  font-size: 28px;
+  margin: 20px 0 5px 0;
+  text-align: center;
 }
 
 ul {
@@ -42,19 +43,32 @@ li {
 }
 
 input {
-  width: 85%;
+  width: 95%;
   height: 70px;
-  padding: 5px;
+  padding: 20px;
   margin: 10px 5px 10px 30px;
-  font-size: 52px;
+  font-size: 50px;
+  border-radius: 50px;
 }
 
 .submit-button {
-  background-color: gray;
-  color: white;
-  width: 150px;
-  height: 55px;
-  margin: 10% 0;
-  padding: 5px;
-  font-size: 16px;
+  width: 50px;
+  height: 50px;
+  margin-top: 100px;
+    img {
+      width: 50px;
+      height: 50px;
+    }
+}
+
+.degree-font, .type-font {
+  font-size: 36px;
+}
+
+.label-font {
+  font-size: 12px;
+}
+
+#app-header {
+  width: 85%;
 }
