@@ -11,6 +11,7 @@ class ForecastField extends React.Component {
     return (
       <ul className={data.weatherType.type}>
         <li>{data.date}</li>
+        <li className="sunny"></li>
         <li>Type: {data.weatherType.type}</li>
         <li>High: {data.temp.high}</li>
         <li>Low: {data.temp.low}</li>
