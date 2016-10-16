@@ -24,8 +24,7 @@ class ForecastField extends React.Component {
     };
 
     let convertedDate = Month[data.date.slice(0,2)] + ' ' + data.date.slice(3,5) + 'th';
-
-    let convertedChance = '% ' + Math.floor(data.weatherType.chance*100) + ' chance of ' ;
+    let convertedChance = '% ' + Math.floor(data.weatherType.chance*100) + ' chance' ;
 
     var getMorningTemp = function() {
       let temperature = 0;
@@ -42,23 +41,48 @@ class ForecastField extends React.Component {
         }
       return temperature/5;
     };
-    
-    let morningTemp = getMorningTemp();
 
+    let morningTemp = getMorningTemp();
     let eveningTemp = getEveningTemp();
 
     return (
-      <ul className={data.weatherType.type}>
-        <li> { convertedDate } </li>
-        <li> { convertedChance } </li>
-        <li> {data.weatherType.type} </li>
-        <li>High: {data.temp.high}</li>
-        <li>Low: {data.temp.low}</li>
-        <li>Morning: {morningTemp} </li>
-        <li>Evening: {eveningTemp} </li>
-      </ul>
-    )
+      <div>
+        <h2> { convertedDate } </h2>
+        
+        <ul>
+          <div className="data-image-container">
+            <li> { convertedChance } </li>
+            <li className={data.weatherType.type}></li>
+            <li>{data.weatherType.type}</li>
+          </div>
 
+          <div className="data-image-container">
+            <li>Morning: {morningTemp} </li>
+            <li className={data.weatherType.type}></li>
+            <li></li>
+          </div>
+
+          <div className="data-image-container">
+            <li>High: {data.temp.high}</li>
+            <li className={data.weatherType.type}></li>
+            <li></li>
+          </div>
+
+          <div className="data-image-container">
+            <li>Evening: {eveningTemp} </li>
+            <li className={data.weatherType.type}></li>
+            <li></li>
+          </div>
+
+          <div className="data-image-container">
+            <li>Low: {data.temp.low}</li>
+            <li className={data.weatherType.type}></li>
+            <li></li>
+          </div>
+
+        </ul>
+      </div>
+    )
   }
 
   render() {

@@ -4,45 +4,57 @@
 
 #header {
   display: flex;
-  justify-content: center;
+  justify-content: flex-start;
   padding-top: 3%;
-
-
 }
 
 body {
-  background-color: antiquewhite;
+  background: url("data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHdpZHRoPSI4IiBoZWlnaHQ9IjgiPgo8cmVjdCB3aWR0aD0iOCIgaGVpZ2h0PSI4IiBmaWxsPSIjNDAzYzNmIj48L3JlY3Q+CjxwYXRoIGQ9Ik0wIDBMOCA4Wk04IDBMMCA4WiIgc3Ryb2tlLXdpZHRoPSIxIiBzdHJva2U9IiMxZTI5MmQiPjwvcGF0aD4KPC9zdmc+");
+  color: white;
+  font-family: sans-serif;
+  // background: url('/images/nz.png') no-repeat center center fixed;
 }
 
 h1 {
   padding-bottom: 5px;
+  font-size: 58px;
+  margin: 20px 25px 5px 25px;
+}
+
+h2 {
+  padding-bottom: 5px;
   font-size: 20px;
-  margin: 0 25px;
+  margin: 20px 25px 5px 25px;
 }
 
 ul {
   list-style: none;
   border-bottom: 1px solid gray;
-  display: flex;
+  display: inline-flex;
   justify-content: center;
+  height: 15%;
+  margin: 20px;
 }
 
 li {
-  padding: 5px;
+  padding: 50px;
+  text-align: center;
 }
 
 input {
-  width: 150px;
+  width: 85%;
+  height: 70px;
   padding: 5px;
-  margin: 0 25px;
-
+  margin: 10px 5px 10px 30px;
+  font-size: 52px;
 }
 
 .submit-button {
   background-color: gray;
   color: white;
   width: 150px;
-  margin: 5px 0;
+  height: 55px;
+  margin: 10% 0;
   padding: 5px;
   font-size: 16px;
 }
