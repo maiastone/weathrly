@@ -4,40 +4,48 @@
 
 #header {
   display: flex;
-  justify-content: center;
+  justify-content: flex-start;
   padding-top: 3%;
 
 
 }
 
 body {
-  background-color: slategray;
-  color: white;
+background: url("data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHhtbG5zOnhsaW5rPSJodHRwOi8vd3d3LnczLm9yZy8xOTk5L3hsaW5rIiB3aWR0aD0iNTAwIiBoZWlnaHQ9IjUwMCI+CjxmaWx0ZXIgaWQ9Im4iPgo8ZmVUdXJidWxlbmNlIHR5cGU9ImZyYWN0YWxOb2lzZSIgYmFzZUZyZXF1ZW5jeT0iLjciIG51bU9jdGF2ZXM9IjEwIiBzdGl0Y2hUaWxlcz0ic3RpdGNoIj48L2ZlVHVyYnVsZW5jZT4KPC9maWx0ZXI+CjxyZWN0IHdpZHRoPSI1MDAiIGhlaWdodD0iNTAwIiBmaWxsPSIjMDAwIj48L3JlY3Q+CjxyZWN0IHdpZHRoPSI1MDAiIGhlaWdodD0iNTAwIiBmaWx0ZXI9InVybCgjbikiIG9wYWNpdHk9IjAuNCI+PC9yZWN0Pgo8L3N2Zz4=");
+color: white
 }
 
 h1 {
   padding-bottom: 5px;
   font-size: 20px;
-  margin: 0 25px;
+  margin: 20px 25px 5px 25px;
+}
+
+h2 {
+  padding-bottom: 5px;
+  font-size: 20px;
+  margin: 20px 25px 5px 25px;
 }
 
 ul {
   list-style: none;
   border-bottom: 1px solid gray;
-  display: flex;
+  display: inline-flex;
   justify-content: center;
-  height: 100px;
+  height: 150px;
+  margin: 20px;
 }
 
 li {
   padding: 5px;
+  text-align: center;
 
 }
 
 input {
   width: 150px;
   padding: 5px;
-  margin: 0 25px;
+  margin: 10px 5px 10px 30px;
 
 }
 
@@ -45,7 +53,8 @@ input {
   background-color: gray;
   color: white;
   width: 150px;
-  margin: 5px 0;
+  height: 55px;
+  margin: 25px 0;
   padding: 5px;
   font-size: 16px;
 }

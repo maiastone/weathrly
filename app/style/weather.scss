@@ -1,8 +1,22 @@
-.cloudy {
-  background-color: green;
+.windy {
+  background: url('./images/windy.svg') no-repeat;
+  width: 100px;
+  height: 100px;
+  margin: auto;
 
 }
 
 .sunny {
   background: url('./images/sunny.svg') no-repeat;
+  width: 100px;
+  height: 100px;
+  margin: auto;
+}
+
+
+.data-image-container {
+  display: flex;
+  flex-direction: column;
+
+
 }
