@@ -1,5 +1,4 @@
-var React = require('react');
-
+const React = require('react');
 
 class SubmitButton extends React.Component {
     constructor() {
