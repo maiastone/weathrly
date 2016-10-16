@@ -21,6 +21,7 @@ class App extends React.Component{
   setLocation(location){
     let userInput = location.target.value.toLowerCase();
     this.setState({location: userInput});
+    localStorage.setItem('location', userInput);
   }
 
   ajaxRequest() {
@@ -29,6 +30,13 @@ class App extends React.Component{
     $.get('http://weatherly-api.herokuapp.com/api/weather/' + locationURL ,function(success){
       this.setState({forecast: success});
     }.bind(this));
+  }
+
+  componentDidMount () {
+    let savedLocation = JSON.parse(localStorage.getItem('location'));
+    if (savedLocation !== undefined){
+      this.setState({location: savedLocation});
+    }
   }
 
   render(){
