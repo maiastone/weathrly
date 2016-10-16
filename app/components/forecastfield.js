@@ -8,6 +8,7 @@ class ForecastField extends React.Component {
   }
 
   getDayInfo(data) {
+    let d = new Date();
     var Month = {
       '01' : 'January',
       '02' : 'February',
@@ -22,6 +23,8 @@ class ForecastField extends React.Component {
       '11' : 'November',
       '12' : 'December'
     };
+
+    let summary = (<p> {data.weatherType.type.toUpperCase()} Today. It is currently {data.hourly.timeBreakDown[Math.floor(d.getHours())]['hour'+parseInt(Math.floor(d.getHours())+1)].temp}.° with a high of {data.temp.high}°. </p>)
 
     let convertedDate = Month[data.date.slice(0,2)] + ' ' + data.date.slice(3,5);
     let convertedChance =  Math.floor(data.weatherType.chance*100)+'% chance' ;
@@ -45,8 +48,11 @@ class ForecastField extends React.Component {
     let morningTemp = getMorningTemp();
     let eveningTemp = getEveningTemp();
 
+
+
     return (
       <div>
+        <h2> { summary } </h2>
         <h2> { convertedDate } </h2>
 
         <ul>
