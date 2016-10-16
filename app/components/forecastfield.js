@@ -1,21 +1,64 @@
-var React = require('react');
+/*jshint esversion: 6 */
+const React = require('react');
 const Weekday = require('./weekdays');
 
-
 class ForecastField extends React.Component {
-    constructor() {
-      super();
-    }
+  constructor() {
+    super();
+  }
 
   getDayInfo(data) {
+    var Month = {
+      '01' : 'January',
+      '02' : 'February',
+      '03' : 'March',
+      '04' : 'April',
+      '05' : 'May',
+      '06' : 'June',
+      '07' : 'July',
+      '08' : 'August',
+      '09' : 'September',
+      '10' : 'October',
+      '11' : 'November',
+      '12' : 'December'
+    };
+
+    let convertedDate = Month[data.date.slice(0,2)] + ' ' + data.date.slice(3,5) + 'th';
+
+    let convertedChance = '% ' + Math.floor(data.weatherType.chance*100) + ' chance of ' ;
+
+    var getMorningTemp = function() {
+      let temperature = 0;
+      for (var i = 6; i < 11; i++) {
+        temperature += data.hourly.timeBreakDown[i]["hour"+(parseInt(i)+1)].temp;
+        }
+      return temperature/5;
+    };
+
+    var getEveningTemp = function() {
+      let temperature = 0;
+      for (var i = 16; i < 21; i++) {
+        temperature += data.hourly.timeBreakDown[i]["hour"+(parseInt(i)+1)].temp;
+        }
+      return temperature/5;
+    };
+    
+    let morningTemp = getMorningTemp();
+
+    let eveningTemp = getEveningTemp();
+
     return (
       <ul className={data.weatherType.type}>
-        <li>{data.date}</li>
-        <li>Type: {data.weatherType.type}</li>
+        <li> { convertedDate } </li>
+        <li> { convertedChance } </li>
+        <li> {data.weatherType.type} </li>
         <li>High: {data.temp.high}</li>
         <li>Low: {data.temp.low}</li>
+        <li>Morning: {morningTemp} </li>
+        <li>Evening: {eveningTemp} </li>
       </ul>
     )
+
   }
 
   render() {

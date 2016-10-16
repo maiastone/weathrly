@@ -18,7 +18,7 @@ class App extends React.Component{
   }
 
   setLocation(location){
-    let userInput = location.target.value
+    let userInput = location.target.value.toLowerCase();
     this.setState({location: userInput});
   }
 
