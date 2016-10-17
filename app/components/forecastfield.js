@@ -7,6 +7,15 @@ class ForecastField extends React.Component {
     super();
   }
 
+  setSummary(data) {
+      let d = new Date();
+      let summary = (<div>Today you can expect {data[0].weatherType.type.toUpperCase()}. Currently the temperature is  {data[0].hourly.timeBreakDown[Math.floor(d.getHours())]['hour'+parseInt(Math.floor(d.getHours())+1)].temp}° and the high will be {data[0].temp.high}°.</div>)
+
+      return (
+      <p id='summary'> { summary } </p>
+      )
+  }
+
   getDayInfo(data) {
     let d = new Date();
     var Month = {
@@ -24,7 +33,7 @@ class ForecastField extends React.Component {
       '12' : 'December'
     };
 
-    let summary = (<p> Today will be {data.weatherType.type.toUpperCase()}. It is currently {data.hourly.timeBreakDown[Math.floor(d.getHours())]['hour'+parseInt(Math.floor(d.getHours())+1)].temp}.° and the high will be {data.temp.high}°. </p>)
+    // let summary = (<p>  Expect {data.weatherType.type.toUpperCase()}. At  {data.hourly.timeBreakDown[Math.floor(d.getHours())]['hour'+parseInt(Math.floor(d.getHours())+1)].temp}.° and the high will be {data.temp.high}°. </p>)
 
     let convertedDate = Month[data.date.slice(0,2)] + ' ' + data.date.slice(3,5);
     let convertedChance =  Math.floor(data.weatherType.chance*100)+'% chance' ;
@@ -51,17 +60,18 @@ class ForecastField extends React.Component {
     return (
       <div>
         <h2> { convertedDate } </h2>
-        <p> { summary } </p>
+
         <ul>
           <div className="data-image-container" className="bold-icon">
             <li> { convertedChance } </li>
+            <br/>
             <li className={data.weatherType.type.replace(' ','-')}></li>
             <li className="type-font">{data.weatherType.type}</li>
           </div>
 
           <div className="data-image-container">
             <li className="label-font">Morning Average</li>
-            <li className={data.weatherType.type.replace(' ','-')}></li>
+            <li className={data.hourly.timeBreakDown[6].hour7.type.replace(' ','-')}></li>
             <li className="degree-font">{morningTemp}°</li>
           </div>
 
@@ -73,13 +83,13 @@ class ForecastField extends React.Component {
 
           <div className="data-image-container">
             <li className="label-font">Evening Average</li>
-            <li className={data.weatherType.type.replace(' ','-')}></li>
+            <li className={data.hourly.timeBreakDown[19].hour20.type.replace(' ','-')}></li>
             <li className="degree-font">{eveningTemp}°</li>
           </div>
 
           <div className="data-image-container">
             <li className="label-font">Nighttime Low</li>
-            <li className={data.weatherType.type.replace(' ','-')}></li>
+            <li className={data.hourly.timeBreakDown[0].hour1.type.replace(' ','-')}></li>
             <li className="degree-font">{data.temp.low}°</li>
           </div>
         </ul>
@@ -88,8 +98,10 @@ class ForecastField extends React.Component {
   }
 
   render() {
+    let summary = this.setSummary(this.props.data)
     return (
       <section>
+        {summary}
         <Weekday data ={this.props.data.map(this.getDayInfo)} />
       </section>
     )

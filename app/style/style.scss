@@ -19,6 +19,11 @@ p {
   text-align: center;
 }
 
+#summary {
+  font-size: 42px;
+  margin: 10px;
+}
+
 h1 {
   padding-bottom: 5px;
   font-family: 'Rubik Mono One', sans-serif;
@@ -85,11 +90,15 @@ input:focus, .submit-button:focus {
 }
 
 .label-font {
-  font-size: 12px;
+  font-size: 16px;
 }
 
 #app-header {
   width: 85%;
+}
+
+.bold-icon {
+  width: 20vw;
 }
 
 // @media screen and (min-width: 600px){
