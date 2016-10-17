@@ -1,4 +1,3 @@
-/*jshint esversion: 6 */
 require('../style/reset');
 require('../style/style');
 require('../style/weather');

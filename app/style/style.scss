@@ -19,6 +19,14 @@ p {
   text-align: center;
 }
 
+#summary {
+  font-size: 42px;
+  margin: 20px 10px;
+  padding-bottom: 10px;
+  border-bottom: 1px solid gray;
+
+}
+
 h1 {
   padding-bottom: 5px;
   font-family: 'Rubik Mono One', sans-serif;
@@ -28,7 +36,7 @@ h1 {
 
 h2 {
   padding-bottom: 5px;
-  font-size: 28px;
+  font-size: 42px;
   margin: 20px 0 5px 0;
   text-align: center;
 }
@@ -53,6 +61,7 @@ ul {
 li {
   padding: 50px;
   text-align: center;
+  font-size: 18px;
 }
 
 input {
@@ -85,11 +94,15 @@ input:focus, .submit-button:focus {
 }
 
 .label-font {
-  font-size: 12px;
+  font-size: 18px;
 }
 
 #app-header {
   width: 85%;
+}
+
+.bold-icon {
+  width: 20vw;
 }
 
 // @media screen and (min-width: 600px){
