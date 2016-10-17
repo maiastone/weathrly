@@ -67,7 +67,7 @@ class ForecastField extends React.Component {
 
           <div className="data-image-container">
             <li className="label-font">Daytime High</li>
-            <li className={data.weatherType.type.replace(' ','-')}></li>
+            <li className={data.hourly.timeBreakDown[13].hour14.type.replace(' ','-')}></li>
             <li className="degree-font">{data.temp.high}°</li>
           </div>
 
