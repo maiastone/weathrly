@@ -7,7 +7,6 @@ const $ = require('jquery');
 const SubmitButton = require('../components/submitbutton');
 const ForecastField = require('../components/forecastfield');
 const LocationSearch = require('../components/locationsearch');
-// const Weekday = require('../components/weekday');
 
 class App extends React.Component{
   constructor(){
@@ -47,18 +46,21 @@ class App extends React.Component{
     let weatherAlert;
 
     if (this.state.extremeWeather === true) {
-      weatherAlert = (<div> {this.state.extremeWeather} forecasted for your area! Be aware! </div>);
+      weatherAlert =
+      (<div> {this.state.extremeWeather} forecasted for your area! Be aware! </div>);
     }
     if (this.state.forecast.length){
       forecast = <ForecastField data={this.state.forecast}/>;
     } else {
-      forecast = (<p> Submit a city!!  </p>);
+      forecast =
+      (<h3> Please enter a valid city to see the forecast </h3>);
     }
+
     return (
     <div className="location">
       <header id="header">
         <LocationSearch setLocation={(event) => this.setLocation(event)}/>
-        <SubmitButton  handleClick={() =>this.ajaxRequest()}/>
+        <SubmitButton handleClick={() => this.ajaxRequest()}/>
       </header>
       {weatherAlert}
       {forecast}
@@ -66,5 +68,7 @@ class App extends React.Component{
     )
   }
 };
+
+
 
 module.exports = App;
