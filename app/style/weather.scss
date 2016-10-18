@@ -4,6 +4,11 @@
   margin: auto;
 }
 
+.data-image-container {
+  display: flex;
+  flex-direction: column;
+  width: 20%;
+}
 
 .windy {
   background: url('./images/windy.svg') no-repeat;
@@ -33,10 +38,4 @@
 .cloudy {
   background: url('./images/cloudy.svg') no-repeat;
   @include weather-icon;
-}
-
-.data-image-container {
-  display: flex;
-  flex-direction: column;
-  width: 20%;
 }
