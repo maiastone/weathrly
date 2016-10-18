@@ -36,7 +36,7 @@ class ForecastField extends React.Component {
     let convertedDate = Month[data.date.slice(0,2)] + ' ' + data.date.slice(3,5);
 
     if (data.weatherType.scale === 3){
-      return (<li> There is an extreme weather alert in your area on {convertedDate}. </li>)
+      return (<ul><li class="extreme"> There is an extreme weather alert in your area on {convertedDate}. </li></ul>)
     }
   }
 
