@@ -1,5 +1,3 @@
-/*jshint esversion: 6 */
-
 var expect = require('chai').expect;
 var assert = require('chai').assert;
 const React = require('react');
@@ -14,10 +12,14 @@ import { shallow, mount, render } from 'enzyme';
 
 describe('app.js', function(){
   it('renders an input field on the page', function() {
-    //define which wrapper i want to use
     const wrapper = mount (<App/>);
     wrapper.find('#city').simulate('change', {target: {value: 'denver'} });
     expect(wrapper.state('location')).to.equal('denver');
   });
 
+  it('renders a button on the page', function(){
+    const wrapper = mount (<App/>);
+    wrapper.find('#city').simulate('change', {target: {value: 'denver'} });
+    expect(wrapper.state('location')).to.equal('denver');
+  });
 });

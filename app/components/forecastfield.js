@@ -1,4 +1,3 @@
-/*jshint esversion: 6 */
 const React = require('react');
 const Weekday = require('./weekdays');
 
@@ -32,8 +31,6 @@ class ForecastField extends React.Component {
       '11' : 'November',
       '12' : 'December'
     };
-
-    // let summary = (<p>  Expect {data.weatherType.type.toUpperCase()}. At  {data.hourly.timeBreakDown[Math.floor(d.getHours())]['hour'+parseInt(Math.floor(d.getHours())+1)].temp}.° and the high will be {data.temp.high}°. </p>)
 
     let convertedDate = Month[data.date.slice(0,2)] + ' ' + data.date.slice(3,5);
     let convertedChance =  Math.floor(data.weatherType.chance*100)+'% chance' ;
