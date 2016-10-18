@@ -58,7 +58,7 @@ class ForecastField extends React.Component {
       <div>
         <h2> { convertedDate } </h2>
 
-        <ul>
+        <ul class="forecast-field">
           <div className="data-image-container" className="bold-icon">
             <li> { convertedChance } </li>
             <br/>
