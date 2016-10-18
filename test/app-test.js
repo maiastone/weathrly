@@ -20,4 +20,9 @@ describe('app.js', function(){
     expect(wrapper.state('location')).to.equal('denver');
   });
 
+  it('renders a button on the page', function(){
+    const wrapper = mount (<App/>);
+    wrapper.find('#city').simulate('change', {target: {value: 'denver'} });
+    expect(wrapper.state('location')).to.equal('denver');
+  });
 });
