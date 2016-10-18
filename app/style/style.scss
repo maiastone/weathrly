@@ -1,9 +1,38 @@
+$extra-large-font-size: 58px;
+$large-font-size: 42px;
+$medium-font-size: $large-font-size/2;
+$small-font-size: $medium-font-size/2;
+$textaligncenter: center;
+$standard-border: 1px solid gray;
+$search-button-size: 50px;
+$header-margins: 10px 0px 0px 50px;
+$header-padding: 30px;
+$bottom-padding: 5px;
+
+@mixin flexbox {
+  display: -webkit-box;
+  display: -moz-box;
+  display: -ms-flexbox;
+  display: -webkit-flex;
+  display: flex;
+}
+
+@mixin searchbox {
+  width: 95%;
+  height: 70px;
+  margin: 10px 5px 10px 30px;
+  padding: $header-padding;
+  font-size: $large-font-size;
+  border-radius: 50px;
+  &:focus {outline: none;}
+}
+
 * {
   box-sizing: border-box;
 }
 
 #header {
-  display: flex;
+  @include flexbox;
   justify-content: flex-start;
   padding-top: 3%;
 }
@@ -14,29 +43,16 @@ body {
   font-family: 'Open Sans', sans-serif;
 }
 
-p {
-  font-size: 11px;
-  text-align: center;
-}
-
-#summary {
-  font-size: 42px;
-  margin: 20px 10px;
-  padding-bottom: 10px;
-  border-bottom: 1px solid gray;
-
-}
-
 h1 {
-  padding-bottom: 5px;
+  padding-bottom: $bottom-padding;
   font-family: 'Rubik Mono One', sans-serif;
-  font-size: 58px;
-  margin: 20px 25px 5px 30px;
+  font-size: $extra-large-font-size;
+  margin: $header-margins;
 }
 
 h2 {
-  padding-bottom: 5px;
-  font-size: 42px;
+  padding-bottom: $bottom-padding;
+  font-size: $large-font-size;
   margin: 20px 0 5px 0;
   text-align: center;
 }
@@ -44,18 +60,22 @@ h2 {
 h3 {
   font-size: 24px;
   text-align: left;
-  margin-left: 50px;
-  margin-top: 10px;
+  margin: $header-margins;
+}
+
+p {
+  font-size: 11px;
+  text-align: center;
 }
 
 ul {
-  list-style: none;
-  border-bottom: 1px solid gray;
-  display: inline-flex;
-  justify-content: center;
+  width: 100%;
   height: 15%;
   margin: 20px;
-  width: 100%;
+  list-style: none;
+  border-bottom: $standard-border;
+  display: inline-flex;
+  justify-content: center;
 }
 
 li {
@@ -65,51 +85,41 @@ li {
 }
 
 input {
-  width: 95%;
-  height: 70px;
-  padding: 20px;
-  margin: 10px 5px 10px 30px;
-  font-size: 50px;
-  border-radius: 50px;
+  @include searchbox;
 }
 
 .submit-button {
-  width: 50px;
-  height: 50px;
+  width: $search-button-size;
+  height: $search-button-size;
   margin-top: 100px;
   background: none;
   border: none;
     img {
-      width: 50px;
-      height: 50px;
+      width: $search-button-size;
+      height: $search-button-size;
     }
-}
-
-input:focus, .submit-button:focus {
-  outline: none;
+    &:focus {outline: none;}
 }
 
 .degree-font, .type-font {
-  font-size: 42px;
+  font-size: $large-font-size;
 }
 
 .label-font {
   font-size: 18px;
 }
 
-#app-header {
-  width: 85%;
-}
-
 .bold-icon {
   width: 20vw;
 }
 
-// @media screen and (min-width: 600px){
-//   // p {
-//   //   font-size: 18px;
-//   // }
-//   html {
-//   background-color: yellow;
-//   }
-// }
+#app-header {
+  width: 85%;
+}
+
+#summary {
+  font-size: $large-font-size;
+  margin: 20px 10px;
+  padding: $header-padding;
+  border-bottom: $standard-border;
+}
