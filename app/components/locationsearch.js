@@ -10,7 +10,7 @@ class LocationSearch extends React.Component {
     return(
       <div id="app-header">
         <h1>Weathrly</h1>
-        <input
+        <input id="city"
         placeholder="search location" aria-label="search location"
         onChange={(event) => this.props.setLocation(event)}
         type="text" />

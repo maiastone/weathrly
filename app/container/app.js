@@ -1,4 +1,3 @@
-/*jshint esversion: 6 */
 require('../style/reset');
 require('../style/style');
 require('../style/weather');
@@ -13,15 +12,13 @@ class App extends React.Component{
     super();
     this.state = {
       location: '',
-      forecast: [],
-      extremeWeather : false
+      forecast: []
     };
   }
 
   setLocation(location){
     let userInput = location.target.value.toLowerCase();
     this.setState({location: userInput});
-    localStorage.setItem('location', userInput);
   }
 
   ajaxRequest() {
@@ -30,25 +27,21 @@ class App extends React.Component{
     if (this.state.location !== ''){
       $.get('http://weatherly-api.herokuapp.com/api/weather/' + locationURL ,function(success){
         this.setState({forecast: success});
+        localStorage.setItem('forecast', JSON.stringify(success));
       }.bind(this));
     }
   }
 
   componentDidMount () {
-    let savedLocation = JSON.parse(localStorage.getItem('location'));
-    if (savedLocation !== undefined){
-      this.setState({location: savedLocation});
+    let savedLocation = JSON.parse(localStorage.getItem('forecast'));
+    if (savedLocation !== null){
+      this.setState({forecast: savedLocation});
     }
   }
 
   render(){
     let forecast;
-    let weatherAlert;
 
-    if (this.state.extremeWeather === true) {
-      weatherAlert =
-      (<div> {this.state.extremeWeather} forecasted for your area! Be aware! </div>);
-    }
     if (this.state.forecast.length){
       forecast = <ForecastField data={this.state.forecast}/>;
     } else {
@@ -62,7 +55,6 @@ class App extends React.Component{
         <LocationSearch setLocation={(event) => this.setLocation(event)}/>
         <SubmitButton handleClick={() => this.ajaxRequest()}/>
       </header>
-      {weatherAlert}
       {forecast}
     </div>
     )

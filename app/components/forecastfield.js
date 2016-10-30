@@ -1,4 +1,3 @@
-/*jshint esversion: 6 */
 const React = require('react');
 const Weekday = require('./weekdays');
 
@@ -7,8 +6,18 @@ class ForecastField extends React.Component {
     super();
   }
 
-  getDayInfo(data) {
-    let d = new Date();
+  setSummary(data) {
+      let d = new Date();
+      let summary = (<div>Today you can expect {data[0].weatherType.type.toUpperCase()}. Currently the temperature is  {data[0].hourly.timeBreakDown[Math.floor(d.getHours())]['hour'+parseInt(Math.floor(d.getHours())+1)].temp}° and the high will be {data[0].temp.high}°.</div>);
+      let extremeWeather = data.map(this.extremeWeatherAlert);
+
+
+      return (
+      <p id='summary'> { summary } { extremeWeather } </p>
+      )
+  }
+
+  extremeWeatherAlert(data) {
     var Month = {
       '01' : 'January',
       '02' : 'February',
@@ -24,7 +33,30 @@ class ForecastField extends React.Component {
       '12' : 'December'
     };
 
-    let summary = (<p> Today will be {data.weatherType.type.toUpperCase()}. It is currently {data.hourly.timeBreakDown[Math.floor(d.getHours())]['hour'+parseInt(Math.floor(d.getHours())+1)].temp}.° and the high will be {data.temp.high}°. </p>)
+    let convertedDate = Month[data.date.slice(0,2)] + ' ' + data.date.slice(3,5);
+
+    if (data.weatherType.scale === 3){
+      return (<ul><li class="extreme"> There is an extreme weather alert in your area on {convertedDate}. </li></ul>)
+    }
+  }
+
+  getDayInfo(data) {
+    let d = new Date();
+
+    var Month = {
+      '01' : 'January',
+      '02' : 'February',
+      '03' : 'March',
+      '04' : 'April',
+      '05' : 'May',
+      '06' : 'June',
+      '07' : 'July',
+      '08' : 'August',
+      '09' : 'September',
+      '10' : 'October',
+      '11' : 'November',
+      '12' : 'December'
+    };
 
     let convertedDate = Month[data.date.slice(0,2)] + ' ' + data.date.slice(3,5);
     let convertedChance =  Math.floor(data.weatherType.chance*100)+'% chance' ;
@@ -51,35 +83,36 @@ class ForecastField extends React.Component {
     return (
       <div>
         <h2> { convertedDate } </h2>
-        <p> { summary } </p>
-        <ul>
+
+        <ul class="forecast-field">
           <div className="data-image-container" className="bold-icon">
             <li> { convertedChance } </li>
+            <br/>
             <li className={data.weatherType.type.replace(' ','-')}></li>
             <li className="type-font">{data.weatherType.type}</li>
           </div>
 
           <div className="data-image-container">
             <li className="label-font">Morning Average</li>
-            <li className={data.weatherType.type.replace(' ','-')}></li>
+            <li className={data.hourly.timeBreakDown[6].hour7.type.replace(' ','-')}></li>
             <li className="degree-font">{morningTemp}°</li>
           </div>
 
           <div className="data-image-container">
             <li className="label-font">Daytime High</li>
-            <li className={data.weatherType.type.replace(' ','-')}></li>
+            <li className={data.hourly.timeBreakDown[13].hour14.type.replace(' ','-')}></li>
             <li className="degree-font">{data.temp.high}°</li>
           </div>
 
           <div className="data-image-container">
             <li className="label-font">Evening Average</li>
-            <li className={data.weatherType.type.replace(' ','-')}></li>
+            <li className={data.hourly.timeBreakDown[19].hour20.type.replace(' ','-')}></li>
             <li className="degree-font">{eveningTemp}°</li>
           </div>
 
           <div className="data-image-container">
             <li className="label-font">Nighttime Low</li>
-            <li className={data.weatherType.type.replace(' ','-')}></li>
+            <li className={data.hourly.timeBreakDown[0].hour1.type.replace(' ','-')}></li>
             <li className="degree-font">{data.temp.low}°</li>
           </div>
         </ul>
@@ -88,8 +121,10 @@ class ForecastField extends React.Component {
   }
 
   render() {
+    let summary = this.setSummary(this.props.data)
     return (
       <section>
+        {summary}
         <Weekday data ={this.props.data.map(this.getDayInfo)} />
       </section>
     )
