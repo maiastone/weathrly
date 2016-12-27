@@ -3,7 +3,7 @@ const React = require('react');
 class LocationSearch extends React.Component {
   constructor() {
     super();
-    this.state = {location: ''};
+    // this.state = {location: ''};
   }
 
   render() {
