@@ -1,9 +1,6 @@
 const React = require('react');
 
 class Weekday extends React.Component {
-    constructor() {
-      super();
-    }
 
   render() {
     return (
@@ -11,9 +8,8 @@ class Weekday extends React.Component {
         {this.props.data}
       </section>
     )
-  }
+  };
 };
-
 
 
 module.exports = Weekday;

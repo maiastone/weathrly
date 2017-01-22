@@ -1,9 +1,6 @@
 const React = require('react');
 
 class SubmitButton extends React.Component {
-    constructor() {
-      super();
-    }
 
   render() {
     return (
