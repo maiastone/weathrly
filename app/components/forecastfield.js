@@ -8,15 +8,41 @@ class ForecastField extends React.Component {
 
   setSummary(data) {
       let d = new Date();
-      let summary = (<div>Today you can expect {data[0].weatherType.type.toUpperCase()}. Currently the temperature is  {data[0].hourly.timeBreakDown[Math.floor(d.getHours())]['hour'+parseInt(Math.floor(d.getHours())+1)].temp}° and the high will be {data[0].temp.high}°.</div>)
+      let summary = (<div>Today you can expect {data[0].weatherType.type.toUpperCase()}. Currently the temperature is  {data[0].hourly.timeBreakDown[Math.floor(d.getHours())]['hour'+parseInt(Math.floor(d.getHours())+1)].temp}° and the high will be {data[0].temp.high}°.</div>);
+      let extremeWeather = data.map(this.extremeWeatherAlert);
+
 
       return (
-      <p id='summary'> { summary } </p>
+      <p id='summary'> { summary } { extremeWeather } </p>
       )
+  }
+
+  extremeWeatherAlert(data) {
+    var Month = {
+      '01' : 'January',
+      '02' : 'February',
+      '03' : 'March',
+      '04' : 'April',
+      '05' : 'May',
+      '06' : 'June',
+      '07' : 'July',
+      '08' : 'August',
+      '09' : 'September',
+      '10' : 'October',
+      '11' : 'November',
+      '12' : 'December'
+    };
+
+    let convertedDate = Month[data.date.slice(0,2)] + ' ' + data.date.slice(3,5);
+
+    if (data.weatherType.scale === 3){
+      return (<ul><li className="extreme"> There is an extreme weather alert in your area on {convertedDate}. </li></ul>)
+    }
   }
 
   getDayInfo(data) {
     let d = new Date();
+
     var Month = {
       '01' : 'January',
       '02' : 'February',
@@ -58,7 +84,7 @@ class ForecastField extends React.Component {
       <div>
         <h2> { convertedDate } </h2>
 
-        <ul class="forecast-field">
+        <ul className="forecast-field">
           <div className="data-image-container" className="bold-icon">
             <li> { convertedChance } </li>
             <br/>
