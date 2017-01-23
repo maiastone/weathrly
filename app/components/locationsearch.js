@@ -1,10 +1,6 @@
-const React = require('react');
+import React from 'react';
 
 class LocationSearch extends React.Component {
-  constructor() {
-    super();
-    this.state = {location: ''};
-  }
 
   render() {
     return(
